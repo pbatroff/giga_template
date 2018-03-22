@@ -37,6 +37,11 @@
         widget: text;
         help: Alternative text will be shown on email clients that does not download image automatically;
       }
+      src{
+        label: Image URL;
+        widget: url;
+        help: Src URL of image;
+      }
       sponsor { label: Sponsor; properties: visible=true src url alt; category: hidden }
       titleText {label:Title Text;category: hidden;}
       gutterVisible { label: Show Gutter; extend: visible }
@@ -138,6 +143,13 @@
       }
 
 /* GIGA BLOCK CONFIG */
+
+      GigaCustomSingleImageBlock longTextStyle {
+        label: Alternative Text;
+        help: Some Email Clients will show this text if automatical download of images is disabled;
+      }
+      GigaCustomSingleImageBlock { label: Giga Custom Single Image Block; properties: gutterVisible=false; variant: gutterVisible; theme: contentTheme }
+
       GigaCommentStartBlock { label: Comment Block Start;  theme: contentTheme}
       GigaCommentDivStartBlock { label: Comment Block Start;  theme: contentTheme}
       GigaCommentDivEndBlock { label: Comment Block Start;  theme: contentTheme}
@@ -156,6 +168,7 @@
       GigaCommentDivEndBlock:preview,
       GigaCustomTextBlock:preview,
       GigaCustomImageTextBlock:preview,
+      GigaCustomSingleImageBlock:preview,
 
       footerBlock:preview,
       socialBlock:preview,
@@ -278,7 +291,17 @@
     [data-ko-block=GigaCustomThreeTextBlock] .long-text p:last-child { Margin-bottom: 0px; }
     [data-ko-block=GigaCustomThreeTextBlock] .long-text p:first-child { Margin-top: 0px; }
 
+    /* GigaCustomSingleImageBlock */
+    [data-ko-block=GigaCustomSingleImageBlock] a,
+    [data-ko-block=GigaCustomSingleImageBlock] a:link,
+    [data-ko-block=GigaCustomSingleImageBlock] a:visited,
+    [data-ko-block=GigaCustomSingleImageBlock] a:hover {
+      color: #3f3f3f;
+      -ko-color: @longTextStyle.linksColor;
+      text-decoration: underline;
+    }
 
+    /* GigaCustomImageTextBlock */
     [data-ko-block=GigaCustomImageTextBlock] .links-color a,
     [data-ko-block=GigaCustomImageTextBlock] .links-color a:link,
     [data-ko-block=GigaCustomImageTextBlock] .links-color a:visited,
@@ -422,29 +445,8 @@
 <!-- GigaCommentDivEndBlock -->
 
 
-  <!-- GigaCommentStartBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="GigaCommentStartBlock">
-    <tr>
-      <!-- __ITEM_START__ -->
-      <td class="vb-outer" valign="top" align="center" bgcolor="#bfbfbf" height="24"
-        style="-ko-attr-height: @spacerSize; height: 24px; -ko-height: @[spacerSize]px; background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor;
-        -ko-attr-bgcolor: @externalBackgroundColor; font-size:1px; line-height: 1px;">&nbsp;</td>
-    </tr>
-  </table>
-  <!-- /GigaCommentStartBlock -->
 
-  <!-- GigaCommentEndBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="GigaCommentEndBlock">
-    <tr>
-      <!-- __ITEM_END__ -->
-      <td class="vb-outer" valign="top" align="center" bgcolor="#bfbfbf" height="24"
-        style="-ko-attr-height: @spacerSize; height: 24px; -ko-height: @[spacerSize]px; background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor;
-        -ko-attr-bgcolor: @externalBackgroundColor; font-size:1px; line-height: 1px;">&nbsp;</td>
-    </tr>
-  </table>
-  <!-- /GigaCommentEndBlock -->
+
 
 
   <!-- GigaCustomTextBlock -->
@@ -534,10 +536,10 @@
           <tr data-ko-display="imageVisible">
             <td width="100%" valign="top" align="left" class="links-color">
               <a data-ko-link="image.url" href="">
-                <img data-ko-editable="image.src" border="0" hspace="0" vspace="0" width="534" data-ko-placeholder-height="200"
-                  src="http://mosaico.io/srv/f-default/img?method=placeholder&amp;params=534%2C200" class="mobile-full"
+                <img border="0" hspace="0" vspace="0" width="534" height="200"
+                  src="" class="mobile-full"
                   alt="" style="vertical-align:top; max-width:534px; width: 100%; height: auto;
-                  -ko-attr-alt: @image.alt" />
+                  -ko-attr-alt: @image.alt; -ko-attr-src: @image.src" />
               </a>
             </td>
           </tr>
@@ -566,6 +568,48 @@
     </tr>
   </table>
   <!-- /GigaCustomImageTextBlock -->
+
+
+  <!-- GigaCustomSingleImageBlock  -->
+  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf" style="background-color: #bfbfbf;
+    -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="GigaCustomSingleImageBlock">
+    <tr>
+      <td class="vb-outer" valign="top" align="center">
+
+  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+        <div class="oldwebkit">
+        <table data-ko-display="gutterVisible eq false" width="570" class="vb-container fullwidth" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
+          cellspacing="0" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
+          <tr>
+            <td valign="top" align="center">
+              <a data-ko-link="image.url" href="" style="text-decoration: none;">
+                <img hspace="0" border="0" vspace="0" width="570" height="200"
+                  src="" class="mobile-full"
+                  alt="" style="max-width: 570px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
+                  font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px;
+                  -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt; -ko-attr-src: @image.src;" /></a>
+            </td>
+          </tr>
+        </table>
+        <table data-ko-display="gutterVisible" width="570" class="vb-container fullpad" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
+          cellspacing="18" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor; display: none;">
+          <tr>
+            <td valign="top" align="center">
+              <a data-ko-link="image.url" href="" style="text-decoration: none;">
+                <img hspace="0" border="0" vspace="0" width="534" height="280"
+                  src="" class="mobile-full"
+                  alt="" style="max-width: 534px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
+                  font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px;
+                  -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt; -ko-attr-src: @image.src;" /></a>
+            </td>
+          </tr>
+        </table>
+        </div>
+  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+  <!-- GigaCustomSingleImageBlock -->
 
 
   <!-- socialBlock -->

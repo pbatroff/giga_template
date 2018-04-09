@@ -45,6 +45,8 @@
       sponsor { label: Sponsor; properties: visible=true src url alt; category: hidden }
       titleText {label:Title Text;category: hidden;}
       gutterVisible { label: Show Gutter; extend: visible }
+      captionVisible { label: Show Image Caption; extend: visible }
+      textVisible { label: Show Additional Text Line; extend: visible }
       socialIconType { label: Icon Version;widget: select; options:bw=Black and White|colors=Colors; }
 
       preheaderLinkOption {
@@ -148,22 +150,17 @@
         label: Alternative Text;
         help: Some Email Clients will show this text if automatical download of images is disabled;
       }
-      GigaCustomSingleImageBlock { label: Giga Custom Single Image Block; properties: gutterVisible=false; variant: gutterVisible; theme: contentTheme }
+      GigaCustomSingleImageBlock { label: Giga Custom Single Image Block; properties: captionVisible=true backgroundColor textStyle text image; variant: captionVisible; theme: contentTheme }
 
-      GigaCommentStartBlock { label: Comment Block Start;  theme: contentTheme}
       GigaCommentDivStartBlock { label: Comment Block Start;  theme: contentTheme}
       GigaCommentDivEndBlock { label: Comment Block Start;  theme: contentTheme}
 
-      GigaCommentEndBlock { label: Comment Block End;  theme: contentTheme}
-
       GigaCustomTextBlock { label: Giga Custom Text Block; properties: backgroundColor longTextStyle longText; theme: contentTheme}
-      GigaCustomThreeTextBlock { label: Giga Custom 3Line Text Block; properties: backgroundColor longTextStyle longText; theme: contentTheme}
+      GigaCustomThreeTextBlock { label: Giga Custom 3Line Text Block; properties: textVisible=false backgroundColor longTextStyle longText; variant: textVisible; theme: contentTheme}
 
       GigaCustomImageTextBlock { label: Giga Custom Image Text Block; properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle  image  longText; theme: contentTheme}
 
 /* Previews */
-      GigaCommentStartBlock:preview,
-      GigaCommentEndBlock:preview,
       GigaCommentDivStartBlock:preview,
       GigaCommentDivEndBlock:preview,
       GigaCustomTextBlock:preview,
@@ -504,7 +501,9 @@
             </td>
           </tr>
         </table>
-        <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
+        <div data-ko-display="textVisible eq false">
+        </div>
+        <table data-ko-display="textVisible" width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
           style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
           <tr>
             <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
@@ -578,29 +577,37 @@
 
   <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
         <div class="oldwebkit">
-        <table data-ko-display="gutterVisible eq false" width="570" class="vb-container fullwidth" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
+        <table data-ko-display="captionVisible" width="570" class="vb-container fullwidth" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
           cellspacing="0" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
           <tr>
             <td valign="top" align="center">
+              <figure>
               <a data-ko-link="image.url" href="" style="text-decoration: none;">
                 <img hspace="0" border="0" vspace="0" width="570" height="200"
                   src="" class="mobile-full"
                   alt="" style="max-width: 570px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
                   font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px;
                   -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt; -ko-attr-src: @image.src;" /></a>
+                <figcaption align="left" style="text-align: left; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                  -ko-font-size: @[textStyle.size]px; -ko-font-family: @textStyle.face; -ko-color: @textStyle.color"
+                  data-ko-editable="text" class="text links-color">
+                  Image Description</figcaption>
+              </figure>
             </td>
           </tr>
         </table>
-        <table data-ko-display="gutterVisible" width="570" class="vb-container fullpad" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
-          cellspacing="18" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor; display: none;">
+        <table data-ko-display="captionVisible eq false" width="570" class="vb-container fullwidth" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
+          cellspacing="0" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
           <tr>
             <td valign="top" align="center">
+              <figure>
               <a data-ko-link="image.url" href="" style="text-decoration: none;">
-                <img hspace="0" border="0" vspace="0" width="534" height="280"
+                <img hspace="0" border="0" vspace="0" width="570" height="200"
                   src="" class="mobile-full"
-                  alt="" style="max-width: 534px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
+                  alt="" style="max-width: 570px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
                   font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px;
                   -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt; -ko-attr-src: @image.src;" /></a>
+                </figure>
             </td>
           </tr>
         </table>

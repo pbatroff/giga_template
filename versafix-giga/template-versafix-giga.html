@@ -44,6 +44,7 @@
       }
       sponsor { label: Sponsor; properties: visible=true src url alt; category: hidden }
       titleText {label:Title Text;category: hidden;}
+      titleUrl {label: Title Link; widget: url; }
       gutterVisible { label: Show Gutter; extend: visible }
       captionVisible { label: Show Image Caption; extend: visible }
       textVisible { label: Show Additional Text Line; extend: visible }
@@ -447,20 +448,20 @@
 
 
   <!-- GigaCustomTextBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="GigaCustomTextBlock">
+  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#fafafa"
+    style="background-color: #fafafa; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="GigaCustomTextBlock">
     <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+      <td class="vb-outer" align="center" valign="top" bgcolor="#fafafa"
+        style="background-color: #fafafa; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
 
   <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
         <div class="oldwebkit">
         <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
           style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
           <tr>
-            <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-              -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+            <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; border-top:solid 1px black;border-bottom: solid 1px black; line-height:1; padding:5px 0 5px;"
               data-ko-editable="longText" class="long-text links-color">
+              Content
             </td>
           </tr>
         </table>
@@ -473,43 +474,35 @@
 
 
   <!-- GigaCustomThreeTextBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="GigaCustomThreeTextBlock">
+  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#fafafa"
+    style="background-color: #fafafa; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="GigaCustomThreeTextBlock">
     <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+      <td class="vb-outer" align="center" valign="top" bgcolor="#fafafa"
+        style="background-color: #fafafa; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
 
   <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
         <div class="oldwebkit">
         <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+            style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
           <tr>
-            <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-              -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-              data-ko-editable="firstlongText" class="long-text links-color">
-              <p>first</p>
-            </td>
-          </tr>
-        </table>
-        <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-          <tr>
-            <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-              -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-              data-ko-editable="secondlongText" class="long-text links-color">
-              <p>second</p>
-            </td>
-          </tr>
-        </table>
-        <div data-ko-display="textVisible eq false">
-        </div>
-        <table data-ko-display="textVisible" width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
-          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
-          <tr>
-            <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-              -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
-              data-ko-editable="thirdlongText" class="long-text links-color">
-              <p>third</p>
+            <td align="left" style="" >
+              <div align="left" style="display: block;margin: 0;padding: 0;color: #555555;font-family: Helvetica;font-size: 18px;font-style: normal;font-weight: normal;line-height: 125%;letter-spacing: normal;text-align: left;"
+                data-ko-editable="firstlongText" class="long-text">
+                <p>first</p>
+              </div>
+              <h1 class="long-text links-color" style="display: block;margin-top: 0;padding-top: 0; color: #555555;font-family: Helvetica;
+                font-size: 24px;font-style: normal;font-weight: normal;line-height: 125%;margin-top:0;margin-bottom:0;
+                letter-spacing: normal;text-align: left;">
+                <a data-ko-link="titleUrl" style="text-decoration:none;-ko-bind-text: @secondlongText" class="links-color" ></a>
+              </h1>
+              <div data-ko-display="textVisible eq false"></div>
+              <div data-ko-display="textVisible">
+                <div align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
+                    -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                    data-ko-editable="thirdlongText" class="long-text links-color">
+                  <p>third</p>
+                </div>
+              </div>
             </td>
           </tr>
         </table>
@@ -522,11 +515,11 @@
 
 
   <!-- GigaCustomImageTextBlock -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf"
-    style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="GigaCustomImageTextBlock">
+  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#fafafa"
+    style="background-color: #fafafa; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="GigaCustomImageTextBlock">
     <tr>
-      <td class="vb-outer" align="center" valign="top" bgcolor="#bfbfbf"
-        style="background-color: #bfbfbf; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+      <td class="vb-outer" align="center" valign="top" bgcolor="#fafafa"
+        style="background-color: #fafafa; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
 
 <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
         <div class="oldwebkit">
@@ -570,7 +563,7 @@
 
 
   <!-- GigaCustomSingleImageBlock  -->
-  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#bfbfbf" style="background-color: #bfbfbf;
+  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#fafafa" style="background-color: #fafafa;
     -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor" data-ko-block="GigaCustomSingleImageBlock">
     <tr>
       <td class="vb-outer" valign="top" align="center">
@@ -578,10 +571,10 @@
   <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
         <div class="oldwebkit">
         <table data-ko-display="captionVisible" width="570" class="vb-container fullwidth" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
-          cellspacing="0" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
+          cellspacing="18" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
           <tr>
             <td valign="top" align="center">
-              <figure>
+              <figure style="margin:0;padding:0;">
               <a data-ko-link="image.url" href="" style="text-decoration: none;">
                 <img hspace="0" border="0" vspace="0" width="570" height="200"
                   src="" class="mobile-full"
@@ -597,10 +590,10 @@
           </tr>
         </table>
         <table data-ko-display="captionVisible eq false" width="570" class="vb-container fullwidth" cellpadding="0" border="0" bgcolor="#ffffff" align="center"
-          cellspacing="0" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
+          cellspacing="18" style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor;">
           <tr>
             <td valign="top" align="center">
-              <figure>
+              <figure style="margin:0;padding:0;">
               <a data-ko-link="image.url" href="" style="text-decoration: none;">
                 <img hspace="0" border="0" vspace="0" width="570" height="200"
                   src="" class="mobile-full"

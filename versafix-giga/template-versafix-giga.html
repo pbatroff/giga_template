@@ -17,7 +17,6 @@
         max: 20;
         help: Attention - this property is not supported on all email clients (i.e. Outlook)
       }
-      face { label: Font; widget: select; options: Arial, Helvetica, sans-serif=Arial|Arial Black, Arial Black, Gadget, sans-serif=Arial Black|Comic Sans MS, Comic Sans MS5, cursive=Comic Sans|Courier New, Courier New, monospace=Courier|Georgia, serif=Georgia|Impact, sans-serif=Impact|Lucida Console, Monaco, monospace=Lucida Console|Lucida Sans Unicode, Lucida Grande, sans-serif=Lucida Sans Unicode|Times New Roman, Times, serif=Times New Roman|Verdana, Geneva, sans-serif=Verdana}
       decoration { label: Decoration; widget: select; options: none=None|underline=Underline }
       linksColor { label: Link Color; extend: color }
       linksDecoration { label: Underlined Links?; extend: decoration }
@@ -69,27 +68,27 @@
       buttonLink { label: Button; extend: link }
 
       /* texts and links */
-      textStyle { label: Text; properties: face color size }
-      textStyle:preview { -ko-bind-text: @['AaZz']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; }
-      linkStyle { label: Link; properties: face color size decoration=none }
-      linkStyle:preview { -ko-bind-text: @['Link']; -ko-font-size: @[size]px; -ko-font-family: @face; -ko-color: @color; -ko-text-decoration: @[decoration] }
-      longTextStyle { label: Paragraph; properties: face color size linksColor   }
-      longTextStyle:preview { -ko-bind-text: @['AaZz']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; }
+      textStyle { label: Text; properties: color size }
+      textStyle:preview { -ko-bind-text: @['AaZz']; -ko-color: @color; -ko-font-size: @[size]px; }
+      linkStyle { label: Link; properties: color size decoration=none }
+      linkStyle:preview { -ko-bind-text: @['Link']; -ko-font-size: @[size]px;  -ko-color: @color; -ko-text-decoration: @[decoration] }
+      longTextStyle { label: Paragraph; properties: color size linksColor   }
+      longTextStyle:preview { -ko-bind-text: @['AaZz'];  -ko-color: @color; -ko-font-size: @[size]px; }
       bigButtonStyle { label: Big Button; extend: buttonStyle }
       titleTextStyle { label: Title; extend: textStyle }
       /* background */
       externalBackgroundColor { label: External Background; extend: color }
 
       externalTextStyle { label: Alternative Text; extend: textStyle }
-      externalTextStyle:preview { -ko-bind-text: @['AaZz']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; }
+      externalTextStyle:preview { -ko-bind-text: @['AaZz'];  -ko-color: @color; -ko-font-size: @[size]px; }
 
-      bigTitleStyle { label: Title; properties: face color size align}
-      bigTitleStyle:preview { -ko-bind-text: @['AaZz']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; }
+      bigTitleStyle { label: Title; properties: color size align}
+      bigTitleStyle:preview { -ko-bind-text: @['AaZz'];  -ko-color: @color; -ko-font-size: @[size]px; }
       /* buttons */
       buttonStyle color { label: Text Color; extend: color }
       buttonStyle size { label: Text Size; extend: size }
-      buttonStyle { label: Button; properties: face color size buttonColor radius }
-      buttonStyle:preview { -ko-bind-text: @['Button']; -ko-font-family: @face; -ko-color: @color; -ko-font-size: @[size]px; -ko-background-color: @buttonColor; padding-left: 5px; -ko-border-radius: @[radius]px; }
+      buttonStyle { label: Button; properties: color size buttonColor radius }
+      buttonStyle:preview { -ko-bind-text: @['Button'];  -ko-color: @color; -ko-font-size: @[size]px; -ko-background-color: @buttonColor; padding-left: 5px; -ko-border-radius: @[radius]px; }
 
       /* contents */
       preheaderText {label: PreHeader Text; extend:text; help: This text will be shown on some email clients as a preview of the email contents;}
@@ -282,7 +281,6 @@
     [data-ko-block=GigaCustomTextBlock] .links-color a:visited,
     [data-ko-block=GigaCustomTextBlock] .links-color a:hover {
       color: #3f3f3f;
-      -ko-color: @longTextStyle.linksColor;
       text-decoration: underline;
     }
     [data-ko-block=GigaCustomTextBlock] .long-text p { Margin: 1em 0px; }
@@ -391,13 +389,13 @@
                       <tr>
                         <td width="100%" valign="top" align="left" style="font-weight: normal; text-align:left; font-size: 13px;
                           font-family: Arial, Helvetica, sans-serif; color: #ffffff;
-                          -ko-font-size: @[linkStyle.size]px; -ko-color: @linkStyle.color; -ko-font-family: @linkStyle.face">
+                          -ko-font-size: @[linkStyle.size]px; -ko-color: @linkStyle.color;">
                           <a data-ko-display="preheaderLinkOption neq 'none'" data-ko-editable="unsubscribeText" href="[unsubscribe_link]"
                              style="text-decoration: underline; color: #ffffff; -ko-attr-href: @preheaderLinkOption;
                              -ko-color: @linkStyle.color; -ko-text-decoration: @linkStyle.decoration">Unsubscribe</a>
                           <span data-ko-display="preheaderLinkOption eq 'none'" style="font-size: 13px;color: #919191; font-weight: normal; text-align:center;
                             font-family: Arial, Helvetica, sans-serif; -ko-font-size: @[longTextStyle.size]px; -ko-color: @longTextStyle.color;
-                            -ko-font-family: @longTextStyle.face; -ko-bind-text: @preheaderText; display: none"></span>
+                             -ko-bind-text: @preheaderText; display: none"></span>
                         </td>
                       </tr>
                     </table>
@@ -408,7 +406,7 @@
                     <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="width: 100%; text-align: right;" align="left">
                       <tr>
                         <td width="100%" valign="top" style="font-weight: normal;  font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #ffffff;
-                      -ko-font-size: @[linkStyle.size]px; -ko-color: @linkStyle.color; -ko-font-family: @linkStyle.face">
+                      -ko-font-size: @[linkStyle.size]px; -ko-color: @linkStyle.color; ">
                       <span style="color: #ffffff; text-decoration: underline;
                         -ko-color: @linkStyle.color; -ko-text-decoration: @linkStyle.decoration">
                           <a data-ko-editable="webversionText" href="[show_link]"
@@ -526,7 +524,7 @@
               <div data-ko-display="textVisible eq false"></div>
               <div data-ko-display="textVisible">
                 <div align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                    -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                    -ko-font-size: @[longTextStyle.size]px; -ko-color: @longTextStyle.color"
                     data-ko-editable="thirdlongText" class="long-text links-color">
                   <p>third</p>
                 </div>
@@ -566,7 +564,7 @@
           <tr><td><table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
             <tr>
               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                -ko-font-size: @[longTextStyle.size]px;  -ko-color: @longTextStyle.color"
                 data-ko-editable="firstlongText" class="long-text links-color">
                 <p>FIRST</p>
               </td>
@@ -575,7 +573,7 @@
           <tr><td><table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
             <tr>
               <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                -ko-font-size: @[longTextStyle.size]px;  -ko-color: @longTextStyle.color"
                 data-ko-editable="secondlongText" class="long-text links-color">
                 <p>SECOND</p>
               </td>
@@ -608,9 +606,9 @@
                   src="" class="mobile-full"
                   alt="" style="max-width: 570px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
                   font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px;
-                  -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt; -ko-attr-src: @image.src;" /></a>
+                   -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt; -ko-attr-src: @image.src;" /></a>
                 <figcaption align="left" style="text-align: left; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f;
-                  -ko-font-size: @[textStyle.size]px; -ko-font-family: @textStyle.face; -ko-color: @textStyle.color"
+                  -ko-font-size: @[textStyle.size]px; -ko-color: @textStyle.color"
                   data-ko-editable="text" class="text links-color">
                   Image Description</figcaption>
               </figure>
@@ -627,7 +625,7 @@
                   src="" class="mobile-full"
                   alt="" style="max-width: 570px; display: block; border-radius: 0px; width: 100%; height: auto; font-size: 13px;
                   font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; -ko-font-size: @[longTextStyle.size]px;
-                  -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt; -ko-attr-src: @image.src;" /></a>
+                   -ko-color: @longTextStyle.color; -ko-attr-alt: @image.alt; -ko-attr-src: @image.src;" /></a>
                 </figure>
             </td>
           </tr>
@@ -660,7 +658,7 @@
                       <tr>
                         <td valign="middle" align="left"
                           style="font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #919191; text-align:left;
-                          -ko-font-size: @[longTextStyle.size]px; -ko-font-family: @longTextStyle.face; -ko-color: @longTextStyle.color"
+                          -ko-font-size: @[longTextStyle.size]px;  -ko-color: @longTextStyle.color"
                           data-ko-editable="longText" class="long-text links-color mobile-textcenter">
                           <p>Address and <a href="">Contacts</a></p>
                         </td>

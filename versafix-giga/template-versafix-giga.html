@@ -156,7 +156,20 @@
       GigaCommentDivStartBlock { label: Comment Block Start;  theme: contentTheme}
       GigaCommentDivEndBlock { label: Comment Block Start;  theme: contentTheme}
 
-      GigaCustomTextBlock { label: Giga Custom Text Block; properties: backgroundColor longTextStyle longText; theme: contentTheme}
+      lineAbove { label: Line above?; widget: select; options: solid=Yes|none=No; }
+      lineAboveColour { label: Line above colour; widget: color }
+      lineBelow { label: Line below?; widget: select; options: solid=Yes|none=No; }
+      lineBelowColour { label: Line below colour; widget: color }
+      paddingAbove { label: Padding above; widget: select; options: 0=None|9px=9px|18px=18px; }
+      paddingBelow { label: Padding below; widget: select; options: 0=None|9px|18px; }
+      marginAbove { label: Margin above line; widget: select; options: 0=None|9px=9px|18px=18px; }
+      marginBelow { label: Margin below line; widget: select; options: 0=None|9px|18px; }
+      GigaCustomTextBlock {
+        label: Giga Custom Text Block;
+        properties: backgroundColor longTextStyle longText lineAbove lineAboveColour lineBelow lineBelowColour paddingAbove paddingBelow marginAbove marginBelow;
+        theme: contentTheme;
+      }
+
       GigaCustomThreeTextBlock { label: Giga Custom 3Line Text Block; properties: textVisible=false backgroundColor longTextStyle longText; variant: textVisible; theme: contentTheme}
 
       GigaCustomImageTextBlock { label: Giga Custom Image Text Block; properties: backgroundColor titleVisible=true buttonVisible=true imageVisible=true titleTextStyle longTextStyle buttonStyle  image  longText; theme: contentTheme}
@@ -457,12 +470,26 @@
 
   <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
         <div class="oldwebkit">
-        <table width="570" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad" bgcolor="#ffffff"
+        <table width="570" border="0" cellpadding="0" cellspacing="0" class="vb-container" bgcolor="#ffffff"
           style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
           <tr>
-            <td align="left" style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; border-top:solid 1px black;border-bottom: solid 1px black; line-height:1; padding:5px 0 5px;"
-              data-ko-editable="longText" class="long-text links-color">
-              Content
+            <td align="left"
+                style="text-align: left; font-size: 13px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; line-height:1; padding:5px 0 5px;padding-top:18px;-ko-padding-top: @marginAbove; padding-bottom:18px;-ko-padding-bottom: @marginBelow;"
+              class="long-text links-color">
+              <div
+                style="
+                border-top: none 1px black;
+                -ko-border-top: @[lineAbove] 1px @lineAboveColour;
+                border-bottom: none 1px black;
+                -ko-border-bottom: @[lineBelow] 1px @lineBelowColour;
+                padding-top:18px;
+                -ko-padding-top: @paddingAbove;
+                padding-bottom:18px;
+                -ko-padding-bottom: @paddingBelow;"
+              data-ko-editable="longText"
+              >
+              GIGA Custom Text Block text
+              </div>
             </td>
           </tr>
         </table>

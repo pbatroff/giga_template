@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
-  <title style="-ko-bind-text: @titleText">TITLE</title>
+  <title style="-ko-bind-text: @titleText">{email.subject}</title>
   <style type="text/css">
     @supports -ko-blockdefs {
       id { widget: id }
@@ -146,6 +146,10 @@
 
 /* GIGA BLOCK CONFIG */
 
+      GigaCustomFooterBlock {
+        label: GIGA Footer;
+        theme: contentTheme;
+      }
       GigaCustomSingleImageBlock longTextStyle {
         label: Alternative Text;
         help: Some Email Clients will show this text if automatical download of images is disabled;
@@ -276,6 +280,13 @@
     }
   </style>
   <style type="text/css" data-inline="true">
+    [data-ko-block=GigaCustomFooterBlock] .links-color a,
+    [data-ko-block=GigaCustomFooterBlock] .links-color a:link,
+    [data-ko-block=GigaCustomFooterBlock] .links-color a:visited,
+    [data-ko-block=GigaCustomFooterBlock] .links-color a:hover {
+      color: #3f3f3f;
+      text-decoration: none;
+    }
     [data-ko-block=GigaCustomTextBlock] .links-color a,
     [data-ko-block=GigaCustomTextBlock] .links-color a:link,
     [data-ko-block=GigaCustomTextBlock] .links-color a:visited,
@@ -350,22 +361,13 @@
 
   </style>
 </head>
-
-
-
 <body bgcolor="#3f3f3f" text="#919191" alink="#cccccc" vlink="#cccccc" style="background-color: #3f3f3f; color: #919191;
   -ko-background-color: @_theme_.frameTheme.backgroundColor; -ko-attr-bgcolor: @_theme_.frameTheme.backgroundColor; -ko-color: @_theme_.frameTheme.longTextStyle.color;
   -ko-attr-text: @_theme_.frameTheme.longTextStyle.color; -ko-attr-alink: @_theme_.frameTheme.longTextStyle.linksColor;
   -ko-attr-vlink: @_theme_.frameTheme.longTextStyle.linksColor">
-
   <center>
-
-
-
-
   <!-- preheaderBlock -->
   <div data-ko-display="preheaderVisible" data-ko-wrap="false">
-
   <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#3f3f3f"
     style="background-color: #3f3f3f; -ko-background-color: @backgroundColor; -ko-attr-bgcolor: @backgroundColor" data-ko-block="preheaderBlock">
     <tr>
@@ -764,6 +766,51 @@
     </tr>
   </table>
   <!-- /socialBlock -->
+
+  <!-- GigaCustomFooterBlock -->
+  <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#fafafa" data-ko-block="GigaCustomFooterBlock"
+    style="background-color: #fafafa; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+    <tr>
+      <td class="vb-outer" align="center" valign="top" bgcolor="#fafafa"
+        style="background-color: #fafafa; -ko-background-color: @externalBackgroundColor; -ko-attr-bgcolor: @externalBackgroundColor">
+
+  <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+        <div class="oldwebkit">
+        <table width="570" border="0" cellpadding="0" cellspacing="0" class="vb-container" bgcolor="#ffffff"
+          style="width: 100%; max-width: 570px; background-color: #ffffff; -ko-attr-bgcolor: @backgroundColor; -ko-background-color: @backgroundColor;">
+          <tr>
+            <td align="left"
+                width="50%"
+                valign="top"
+                style="text-align: left; font-size: 11px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; line-height:1; padding:5px 0 5px;vertical-align:top;"
+              class="long-text links-color">
+              <p>GIGA German Institute of Global and Area Studies<br/>
+              Leibniz-Institut für Globale und Regionale Studien</p>
+              <p>{domain.address}</p>
+            </td>
+
+            <td align="left"
+                style="text-align: left; font-size: 11px; font-family: Arial, Helvetica, sans-serif; color: #3f3f3f; line-height:1; padding:5px 0 5px;vertical-align:top;"
+                valign="top"
+                width="50%"
+              class="long-text links-color">
+              <p><a href="https://www.giga-hamburg.de/en">www.giga-hamburg.de</a></p>
+              <p><a href="mailto:publications@giga-hamburg.de" >publications@giga-hamburg.de</a>
+                <a href="https://www.facebook.com/GIGA.Institute" target="_blank" style="padding-top:6px;padding-left:6px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6b6b6a;font-weight: normal;text-decoration: none;"><img alt=""  src="https://www.giga-hamburg.de/sites/default/files/social-icons-newsletter/facebook.png" style="height: 12px !important;width: 12px !important;margin: 0px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;display:inline-block;" width="14"/></a>
+                <a href="https://twitter.com/GIGA_Institute" target="_blank" style="padding-top:6px;padding-left:4px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6b6b6a;font-weight: normal;text-decoration: none;"><img alt=""  height="10px" src="https://www.giga-hamburg.de/sites/default/files/social-icons-newsletter/twitter.png" style="height: 12px !important;width: 12px !important;margin-left:5px;margin-right:5px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;;display:inline-block;" width="14"/></a>
+                <a href="https://www.giga-hamburg.de/de/feeds" target="_blank" style="padding-top:6px;padding-left:4px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6b6b6a;font-weight: normal;text-decoration: none;;display:inline-block;"><img  alt="" src="https://www.giga-hamburg.de/sites/default/files/social-icons-newsletter/rss.png" style="height: 12px !important;width: 12px !important;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" width="14"/></a>
+              </p>
+             <img alt="GIGA" src="https://www.giga-hamburg.de/sites/all/themes/giga/assets/images/giga-logo.png" style="width: 120px;border: 0;height: auto !important;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;"/>
+
+            </td>
+          </tr>
+        </table>
+        </div>
+  <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+  <!-- /GigaCustomFooterBlock -->
 
   </div>
   </center>

@@ -14,7 +14,7 @@ The following worked with node 8.11.3, yarn 1.7.0
     yarn add grunt-cli
     # You can now check makeThumbs works:
     # yarn run grunt makeThumbs:main:versafix-1
-    git clone clone git@github.com:pbatroff/giga_template.git giga_template
+    git clone git@github.com:pbatroff/giga_template.git giga_template
     cd templates; ln -s ../giga_template/versafix-giga ; cd -
     # We can now build the thumbs in our custom template with:
     yarn run grunt makeThumbs:main:versafix-giga
